@@ -9,6 +9,9 @@ using namespace advent;
 int main(){
     ReadInput fileInput{"mass_data.txt"};
     FuelRequirement fuel {fileInput.readFromFile()};
-    cout << fuel.calculateFuelRequirement() << endl;
+    int primaryRequirement = fuel.calculateFuelRequirement();
+    int totalRequirement = fuel.incrementalFuelRequirement(primaryRequirement);
+    cout << "Requirement without fuel: " << primaryRequirement << endl;
+    cout << "Requirement with recursive Fuel: " << fuel.individualRequirement() << endl;
     return 0;
 }

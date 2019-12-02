@@ -20,7 +20,9 @@ namespace advent{
         FuelRequirement(): mass(){}
         FuelRequirement(vector<int> massData) : mass(massData){}
         int calculateFuelRequirement ();
-
+        int individualRequirement();
+        static int incrementalFuelRequirement ( int requirement);
+        static int fuelAlgorithm(int base);
     };
 
     class ReadInput{
