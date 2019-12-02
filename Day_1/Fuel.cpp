@@ -2,11 +2,10 @@
 
 namespace advent{
     int FuelRequirement::calculateFuelRequirement(){
-        int totalFuel { 0 };
-        for(int a: mass){
-            totalFuel += (floor(a / 3) - 2);
-        }
-        return totalFuel;
+        vector<int> temp { };
+        temp.resize(mass.size());
+        std::transform(mass.begin(), mass.end(), temp.begin(), [](int x){ return floor(x / 3) - 2; });
+        return std::accumulate(temp.begin(), temp.end(), 0);
     }
 
     ReadInput::ReadInput(string filename){
